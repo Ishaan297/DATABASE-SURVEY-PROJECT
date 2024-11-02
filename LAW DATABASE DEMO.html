@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unified Law Database</title>
+  <style>
+    /* General Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #3a7bd5; /* Modern blue gradient */
+      background-image: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+      color: white;
+      padding: 15px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .search-bar {
+      width: 300px;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-button {
+      background-color: transparent;
+      color: white;
+      font-weight: bold;
+      border: 2px solid white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #fff;
+      color: #3a7bd5;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #3a7bd5;
+      margin-bottom: 15px;
+    }
+
+    .law-section, .complaint-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    select, input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .submit-button {
+      background-color: #3a7bd5;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+      background-color: #295e8c;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 10px;
+      }
+    }
+  </style>
+  <script>
+    function displayPDF() {
+      const lawSelect = document.getElementById("law-select");
+      const pdfViewer = document.getElementById("pdf-viewer");
+
+      // Update the iframe source based on the selected law
+      if (lawSelect.value === "hindu-marriage-act") {
+        pdfViewer.src = "https://drive.google.com/file/d/1wGG876bmioEbrKoAomXkoYDmOrKkyh7_/preview";
+      } else {
+        pdfViewer.src = "";
+      }
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="logo">Unified Law Database</div>
+  <input type="text" class="search-bar" placeholder="Search for laws...">
+  <nav>
+    <button class="nav-button">Home</button>
+    <button class="nav-button">About</button>
+    <button class="nav-button">Contact</button>
+  </nav>
+</header>
+
+<main>
+  <section class="law-section">
+    <h2>Select Law and Clause</h2>
+    <label for="law-select">Law:</label>
+    <select id="law-select" onchange="displayPDF()">
+      <option value="">Select a law</option>
+      <option value="hindu-marriage-act">Hindu Marriage Act</option>
+      <!-- Additional laws can be added here -->
+    </select>
+
+    <label for="clause-select">Clause:</label>
+    <select id="clause-select">
+      <option value="">Select a clause</option>
+      <option value="5">Conditions for a Hindu marriage</option>
+      <option value="9">Restitution of conjugal rights</option>
+      <option value="13">Divorce</option>
+      <!-- Add more clauses here -->
+    </select>
+  </section>
+
+  <!-- PDF Viewer -->
+  <iframe id="pdf-viewer" class="pdf-viewer" src=""></iframe>
+
+  <section class="complaint-form">
+    <h2>Submit a Complaint</h2>
+    <form action="/submit-complaint" method="post">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="complaint-details">Complaint Details:</label>
+      <textarea id="complaint-details" name="complaint-details" rows="4" required></textarea>
+
+      <button type="submit" class="submit-button">Submit Complaint</button>
+    </form>
+  </section>
+</main>
+
+</body>
+</html>
