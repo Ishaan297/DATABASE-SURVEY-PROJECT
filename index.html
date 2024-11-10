@@ -44,5 +44,146 @@
         </section>
     </main>
 
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.search-bar {
+  width: 300px;
+  padding: 5px;
+}
+
+nav {
+  display: flex;
+}
+
+.nav-button {
+  background-color: #fff; /* White background */
+  color: #4CAF50; /* Green text */
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #ddd; /* Light gray on hover */
+}
+
+main {
+  padding: 20px;
+}
+
+.survey-boxes {
+  display: flex;
+  align-items: stretch; /* Ensures all items are the same height */
+  justify-content: space-around; /* Reduces spacing between items */
+}
+
+.survey-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  width: 24%; /* Increased width to reduce spacing */
+  height: 225px; /* Increased height to 1.5 times */
+  overflow: hidden; /* Prevents content overflow */
+  display: flex;
+  flex-direction: column;
+}
+
+.survey-box img {
+  width: 100%;
+  height: 90%; /* Takes up 90% of the box height */
+  object-fit: cover; /* Ensures image covers its area without distortion */
+}
+
+.survey-name {
+  height: 10%; /* Occupies only 10% of the box height */
+  font-size: 16px;
+  line-height: 1.2; /* Adjusted line height for compact text */
+  padding-top: 5px;
+}
+
+.view-all {
+  width: 12%; /* Slightly increased width */
+  height: 225px; /* Matches height with survey boxes */
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-all:hover {
+  background-color: #0056b3;
+}
+
+.create-container {
+  display: flex;
+  justify-content: center; /* Center the create button horizontally */
+  margin-top: 20px; /* Space above the button */
+}
+
+.create-survey {
+  padding: 15px 30px;
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.create-survey:hover {
+  background-color: #E68A00;
+}
+
+.explore-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align buttons vertically */
+}
+
+.explore-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: auto; /* Adjust width to fit content */
+}
+
+.explore-local {
+  background-color: #2196F3; /* Blue color for local */
+}
+
+.explore-global {
+  background-color: #f44336; /* Red color for global */
+}
+
+.explore-button:hover {
+  opacity: .8; /* Slightly fade on hover for effect */
+}
 </body>
 </html>
